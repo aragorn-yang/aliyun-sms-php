@@ -4,6 +4,7 @@ namespace AragornYang\AliyunSms;
 
 use Aliyun\Api\Sms\Request\V20170525\QuerySendDetailsRequest;
 use Aliyun\Api\Sms\Request\V20170525\SendSmsRequest;
+use Aliyun\Core\Config;
 use Aliyun\Core\DefaultAcsClient;
 use Aliyun\Core\Profile\DefaultProfile;
 
@@ -42,6 +43,8 @@ class AliyunSms
         $endPointName = "cn-hangzhou";
 
         if (null === static::$acsClient) {
+            Config::load();
+
             //初始化acsClient,暂不支持region化
             $profile = DefaultProfile::getProfile($region, $this->accessKeyId, $this->accessKeySecret);
 
