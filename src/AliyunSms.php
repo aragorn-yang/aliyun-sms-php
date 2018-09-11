@@ -1,5 +1,6 @@
 <?php
 
+use Aliyun\Api\Sms\Request\V20170525\QuerySendDetailsRequest;
 use Aliyun\Api\Sms\Request\V20170525\SendSmsRequest;
 use Aliyun\Core\DefaultAcsClient;
 use Aliyun\Core\Profile\DefaultProfile;
@@ -92,6 +93,46 @@ class AliyunSms
 
         // 选填，上行短信扩展码（扩展码字段控制在7位或以下，无特殊需求用户请忽略此字段）
         //$request->setSmsUpExtendCode("1234567");
+
+        // 发起访问请求
+        $acsResponse = $this->getAcsClient()->getAcsResponse($request);
+
+        return $acsResponse;
+    }
+
+    /**
+     * 短信发送记录查询
+     * @param string $phoneNumber
+     * @param string $sendDate
+     * @param int $pageSize
+     * @param int $currentPage
+     * @return stdClass
+     */
+    public function querySendDetails($phoneNumber, $sendDate, $pageSize, $currentPage)
+    {
+        // 初始化QuerySendDetailsRequest实例用于设置短信查询的参数
+        $request = new QuerySendDetailsRequest();
+
+        //可选-启用https协议
+        $request->setProtocol("https");
+
+        // 必填，短信接收号码
+        $request->setPhoneNumber($phoneNumber);
+
+        // 必填，短信发送日期，格式Ymd，支持近30天记录查询
+        //$sendDate = "20170718";
+        $request->setSendDate($sendDate);
+
+        // 必填，分页大小
+        //$pageSize = 10;
+        $request->setPageSize($pageSize);
+
+        // 必填，当前页码
+        //$currentPage = 1;
+        $request->setCurrentPage($currentPage);
+
+        // 选填，短信发送流水号
+        //$request->setBizId("yourBizId");
 
         // 发起访问请求
         $acsResponse = $this->getAcsClient()->getAcsResponse($request);
