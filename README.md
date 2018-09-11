@@ -17,4 +17,5 @@ ALIYUN_SMS_ACCESS_KEY_SECRET=your_access_key_secret
 
 ```php
 $aliSms = new AliyunSms();
+$response = $aliSms->sendSms('phone_number', 'sign_name', 'template_code', ['name'=> 'value in your template']);
 ```
