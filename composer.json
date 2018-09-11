@@ -1,0 +1,38 @@
+{
+    "name": "aragorn-yang/aliyun-sms-php",
+    "description": "阿里云短信服务",
+    "keywords": [
+        "aliyun",
+        "SMS",
+        "sdk",
+        "Laravel"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/aragorn-yang/aliyun-sms-php",
+    "authors": [
+        {
+            "name": "Aragorn Yang",
+            "email": "aragorn.yang@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "ext-json": "*",
+        "aragorn-yang/aliyun-dysms-php-sdk": "=V20170525",
+        "illuminate/support": "5.*"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "AragornYang\\AliyunSms\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AragornYang\\AliyunSms\\ServiceProvider"
+            ]
+        }
+    }
+}
