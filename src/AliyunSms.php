@@ -1,5 +1,7 @@
 <?php
 
+namespace AragornYang\AliyunSms;
+
 use Aliyun\Api\Sms\Request\V20170525\QuerySendDetailsRequest;
 use Aliyun\Api\Sms\Request\V20170525\SendSmsRequest;
 use Aliyun\Core\DefaultAcsClient;
@@ -59,7 +61,7 @@ class AliyunSms
      * @param string $signName
      * @param string $templateCode
      * @param array $param
-     * @return stdClass
+     * @return \stdClass
      */
     public function sendSms($phoneNumbers, $signName, $templateCode, $param)
     {
@@ -106,7 +108,7 @@ class AliyunSms
      * @param string $sendDate
      * @param int $pageSize
      * @param int $currentPage
-     * @return stdClass
+     * @return \stdClass
      */
     public function querySendDetails($phoneNumber, $sendDate, $pageSize, $currentPage)
     {
