@@ -20,7 +20,7 @@
         "php": ">=5.5",
         "ext-json": "*",
         "aragorn-yang/aliyun-dysms-php-sdk": "=V20170525",
-        "illuminate/support": "5.*"
+        "illuminate/support": ">=5.0"
     },
     "minimum-stability": "stable",
     "autoload": {
